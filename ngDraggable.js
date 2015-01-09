@@ -115,8 +115,8 @@ angular.module("ngDraggable", [])
                         element.centerX = element[0].offsetWidth / 2;
                         element.centerY = element[0].offsetHeight / 2;    
                         
-                        _mx = (evt.pageX || evt.touches[0].pageX);
-                        _my = (evt.pageY || evt.touches[0].pageY);
+                        _mx = (evt.pageX || evt.originalEvent.touches[0].pageX);
+                        _my = (evt.pageY || evt.originalEvent.touches[0].pageY);
                         _mrx = _mx - offset.left;
                         _mry = _my - offset.top;
                          if (_centerAnchor) {
@@ -136,8 +136,8 @@ angular.module("ngDraggable", [])
                         if (!_dragEnabled)return;
                         evt.preventDefault();
 
-                        _mx = (evt.pageX || evt.touches[0].pageX);
-                        _my = (evt.pageY || evt.touches[0].pageY);
+                        _mx = (evt.pageX || evt.originalEvent.touches[0].pageX);
+                        _my = (evt.pageY || evt.originalEvent.touches[0].pageY);
 
                          if (_centerAnchor) {
                              _tx = _mx - element.centerX - $window.pageXOffset;
